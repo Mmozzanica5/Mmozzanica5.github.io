@@ -1,6 +1,6 @@
 
-Bachelor Thesis
-###############
+Active Preshower for the ELIOT Experiment
+#########################################
 
 .. toctree::
    :maxdepth: 2
