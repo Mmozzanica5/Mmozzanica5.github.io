@@ -8,5 +8,5 @@ We prova. vediamo se cambia
    :maxdepth: 2
    :caption: Contents:
 
-   Bachelor
-   Master
+   Bachelor/index
+   Master/index
