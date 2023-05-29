@@ -1,9 +1,9 @@
 Lab 1 - Classical Mechanics
 ##########################
-- Radon Detectors
-- MimoTera
-- SiPM
-- Harmonic Oscillator
-- Air Track Glider
+- Filters
+- Diodes
+- Transistors
+- Op Pamp
+- Trasmission Lines
 
-Complete Report is `_here <https://github.com/Mmozzanica5/Mmozzanica5.github.io/tree/website/Bachelor/Lab_ClassicalMechanics>`_
+Complete Report is `_here <https://github.com/Mmozzanica5/Mmozzanica5.github.io/tree/main/Bachelor/Lab_Electronics>`_
