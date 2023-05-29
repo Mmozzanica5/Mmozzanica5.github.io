@@ -2,6 +2,7 @@ Lab 2 - Electromagnetism and Optics
 ###################################
 
 Experiments:
+
 - Michelson
 - Double pendulum
 - Spectrometer
