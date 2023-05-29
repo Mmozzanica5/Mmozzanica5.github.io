@@ -1,5 +1,6 @@
 Laboratories
-###########
+^^^^^^^^^^^^
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
@@ -10,7 +11,7 @@ Laboratories
    lab4.rst
    
 Statistics
-###########
+^^^^^^^^^^
 
 .. toctree::
    :maxdepth: 2
@@ -18,7 +19,7 @@ Statistics
    Statistics/index
    
 Thesis
-###########
+^^^^^^
 
 .. toctree::
    :maxdepth: 2
