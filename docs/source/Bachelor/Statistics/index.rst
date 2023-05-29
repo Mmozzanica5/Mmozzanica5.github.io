@@ -1,6 +1,6 @@
 
-Statistics
-##########
+Accidental Politicians
+######################
 
 .. toctree::
    :maxdepth: 2
