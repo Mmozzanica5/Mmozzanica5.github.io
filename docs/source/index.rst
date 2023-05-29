@@ -2,8 +2,6 @@
 Welcome to Martina Mozzanica Pages!
 =============================================
 
-Martina's Read the Docs
-^^^^^^^^^^^^^^^^^^^^^^^
 
 .. toctree::
    :maxdepth: 2
