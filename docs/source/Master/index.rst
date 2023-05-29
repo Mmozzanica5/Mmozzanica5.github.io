@@ -1,6 +1,6 @@
 
 Laboratory
-###########
+^^^^^^^^^^
 
 .. toctree::
    :maxdepth: 2
@@ -9,7 +9,7 @@ Laboratory
    lab/index
    
 Montecarlo Simulation
-######################
+^^^^^^^^^^^^^^^^^^^^^
 
 .. toctree::
    :maxdepth: 2
@@ -18,7 +18,7 @@ Montecarlo Simulation
    montecarlo/index
    
 Thesis
-######
+^^^^^^
 
 .. toctree::
    :maxdepth: 2
