@@ -1,9 +1,9 @@
 
-Bachelor Thesis
-###############
+Statistics
+##########
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
-   Thesis.rst
+   Statistics.rst
