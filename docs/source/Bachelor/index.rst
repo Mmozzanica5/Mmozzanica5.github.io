@@ -17,7 +17,7 @@ Statistics
    
    Statistics/index
    
-Thesis:
+Thesis
 ###########
 
 .. toctree::
