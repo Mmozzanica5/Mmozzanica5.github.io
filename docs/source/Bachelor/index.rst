@@ -14,15 +14,13 @@ Statistics
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
    
-   Statistics.rst
+   Statistics/index
    
 Thesis:
 ###########
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
    
-   Thesis.rst
+   Thesis/index
