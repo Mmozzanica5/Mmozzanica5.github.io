@@ -18,8 +18,8 @@ Statistics
    
    Statistics/index
    
-Thesis
-^^^^^^
+Bachelor Thesis
+^^^^^^^^^^^^^^^
 
 .. toctree::
    :maxdepth: 2
