@@ -2,8 +2,6 @@
 Accidental Politicians
 ######################
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+Reproduction of the simulation of the "Accidental Politicians: How Randomly Selected Legislators Can Improve Parliament Efficiency"  ` paper <https://arxiv.org/abs/1103.1224>`_.
 
-   Statistics.rst
+Documentation is `here <https://github.com/Mmozzanica5/Mmozzanica5.github.io/tree/main/Bachelor/Statistics>`_
