@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Martina Mozzanica</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #080c10;
+      --surface: #0e1419;
+      --border: #1c2530;
+      --text: #e8edf2;
+      --muted: #6b7d8f;
+      --accent: #4fc3f7;
+      --accent2: #7c4dff;
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 48px;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s, background 0.3s;
+    }
+    nav.scrolled {
+      background: rgba(8, 12, 16, 0.92);
+      backdrop-filter: blur(12px);
+      border-color: var(--border);
+    }
+    .nav-name {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 17px;
+      letter-spacing: -0.3px;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 400;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 120px 48px 80px;
+      max-width: 960px;
+      position: relative;
+    }
+    .hero-tag {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(42px, 6vw, 76px);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -2px;
+      color: var(--text);
+      margin-bottom: 28px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-bio {
+      font-size: 17px;
+      color: var(--muted);
+      max-width: 560px;
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+    .hero-links { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #000;
+    }
+    .btn-primary:hover { background: #81d4fa; }
+    .btn-ghost {
+      border: 1px solid var(--border);
+      color: var(--muted);
+      background: transparent;
+    }
+    .btn-ghost:hover { border-color: var(--muted); color: var(--text); }
+
+    /* SECTIONS */
+    section {
+      padding: 96px 48px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 40px;
+    }
+    h2 {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 3.5vw, 40px);
+      font-weight: 700;
+      letter-spacing: -1px;
+      color: var(--text);
+      margin-bottom: 48px;
+    }
+
+    /* RESEARCH */
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .research-card {
+      background: var(--surface);
+      padding: 28px;
+      transition: background 0.2s;
+    }
+    .research-card:hover { background: #111820; }
+    .research-card h3 {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+    .research-card p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .research-icon {
+      width: 32px; height: 32px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border-radius: 8px;
+      margin-bottom: 16px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 15px;
+    }
+
+    /* PAPERS */
+    .papers-list { display: flex; flex-direction: column; gap: 0; }
+    .paper-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: start;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .paper-item:first-child { border-top: 1px solid var(--border); }
+    .paper-item:hover .paper-title { color: var(--accent); }
+    .paper-venue {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--accent2);
+      margin-bottom: 6px;
+    }
+    .paper-title {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.4;
+      transition: color 0.2s;
+    }
+    .paper-arrow {
+      font-size: 18px;
+      color: var(--border);
+      transition: color 0.2s;
+      margin-top: 20px;
+    }
+    .paper-item:hover .paper-arrow { color: var(--accent); }
+
+    /* CODE */
+    .code-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .code-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 22px;
+      text-decoration: none;
+      display: flex; flex-direction: column; gap: 10px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .code-card:hover {
+      border-color: var(--accent);
+      background: #0e1c2a;
+    }
+    .code-card-name {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .code-card-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.55;
+      flex: 1;
+    }
+    .code-card-lang {
+      font-size: 11px;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    /* CONTACT */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .contact-text {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .contact-text strong { color: var(--text); }
+    .contact-links { display: flex; flex-direction: column; gap: 12px; }
+    .contact-link {
+      display: flex; align-items: center; gap: 12px;
+      padding: 14px 18px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+    .contact-link:hover { border-color: var(--accent); color: var(--text); }
+    .contact-link span:first-child { font-size: 16px; }
+
+    /* DIVIDER */
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 0 48px;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 40px 48px;
+      color: var(--muted);
+      font-size: 13px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* SCROLL GLOW */
+    .glow {
+      position: fixed; top: -200px; left: -200px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(79, 195, 247, 0.04) 0%, transparent 70%);
+      pointer-events: none;
+      transition: transform 0.8s ease;
+      border-radius: 50%;
+    }
+
+    @media (max-width: 640px) {
+      nav { padding: 16px 20px; }
+      .nav-links { display: none; }
+      .hero { padding: 100px 20px 60px; }
+      section { padding: 64px 20px; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .divider { margin: 0 20px; }
+      footer { padding: 32px 20px; flex-direction: column; gap: 8px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="glow" id="glow"></div>
+
+<nav id="nav">
+  <a href="#" class="nav-name">Martina Mozzanica</a>
+  <ul class="nav-links">
+    <li><a href="#research">Research</a></li>
+    <li><a href="#papers">Papers</a></li>
+    <li><a href="#code">Code</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div class="hero-tag">PhD Researcher · Universität Hamburg</div>
+  <h1>Fast simulation<br>for <em>particle physics</em><br>with deep learning.</h1>
+  <p class="hero-bio">
+    I build generative models — diffusion, flow matching, one-step generators — that simulate hadronic showers in highly granular calorimeters at two orders of magnitude faster than Geant4, without sacrificing physics accuracy.
+  </p>
+  <div class="hero-links">
+    <a href="#papers" class="btn btn-primary">View papers</a>
+    <a href="https://github.com/Mmozzanica5" class="btn btn-ghost" target="_blank">GitHub</a>
+    <a href="https://inspirehep.net/literature?q=a%20Mozzanica%2C%20Martina" class="btn btn-ghost" target="_blank">INSPIRE</a>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<section id="research">
+  <div class="section-label">What I work on</div>
+  <h2>Research focus</h2>
+  <div class="research-grid">
+    <div class="research-card">
+      <div class="research-icon">⚡</div>
+      <h3>Fast Calorimeter Simulation</h3>
+      <p>Replacing Geant4 with deep generative models for hadronic shower simulation in ECal and HCal detectors, as point clouds with energy and time.</p>
+    </div>
+    <div class="research-card">
+      <div class="research-icon">🌊</div>
+      <h3>Diffusion & Flow Matching</h3>
+      <p>Developing and benchmarking diffusion models and flow matching architectures for high-fidelity, geometry-independent shower generation.</p>
+    </div>
+    <div class="research-card">
+      <div class="research-icon">🔁</div>
+      <h3>One-Step Generators</h3>
+      <p>Pushing the frontier of inference speed with latent mean-flow generators for pion showers — physics quality at near-zero latency.</p>
+    </div>
+    <div class="research-card">
+      <div class="research-icon">📐</div>
+      <h3>Geometry Independence</h3>
+      <p>Training models that generalise across calorimeter geometries and particle types, reducing the cost of re-simulation for new detector designs.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="papers">
+  <div class="section-label">Publications</div>
+  <h2>Selected papers</h2>
+  <div class="papers-list">
+
+    <a class="paper-item" href="https://arxiv.org/abs/2609.30403" target="_blank">
+      <div>
+        <div class="paper-venue">arXiv · 2025</div>
+        <div class="paper-title">Point-cloud generative models for fast calorimeter simulation across particles and geometries</div>
+      </div>
+      <div class="paper-arrow">↗</div>
+    </a>
+
+    <a class="paper-item" href="https://arxiv.org/abs/2609.24306" target="_blank">
+      <div>
+        <div class="paper-venue">arXiv · 2025</div>
+        <div class="paper-title">Jevons' Paradox and Fast Generative Simulation for HEP: Why Realistic Benchmarking is Essential</div>
+      </div>
+      <div class="paper-arrow">↗</div>
+    </a>
+
+    <a class="paper-item" href="https://arxiv.org/abs/2606.11304" target="_blank">
+      <div>
+        <div class="paper-venue">arXiv · 2025</div>
+        <div class="paper-title">SPADE: Split-and-Delay Embeddings for Autoregressive High-Granularity Calorimeter Simulation</div>
+      </div>
+      <div class="paper-arrow">↗</div>
+    </a>
+
+    <a class="paper-item" href="https://doi.org/10.1088/1748-0221/21/03/P03018" target="_blank">
+      <div>
+        <div class="paper-venue">JINST 21 · 2026</div>
+        <div class="paper-title">CaloClouds3: Ultra-Fast Geometry-Independent Highly-Granular Calorimeter Simulation</div>
+      </div>
+      <div class="paper-arrow">↗</div>
+    </a>
+
+    <a class="paper-item" href="https://arxiv.org/abs/2506.21720" target="_blank">
+      <div>
+        <div class="paper-venue">JINST 21 · 2026</div>
+        <div class="paper-title">CaloHadronic: a diffusion model for the generation of hadronic showers</div>
+      </div>
+      <div class="paper-arrow">↗</div>
+    </a>
+
+    <a class="paper-item" href="https://arxiv.org/abs/2501.05534" target="_blank">
+      <div>
+        <div class="paper-venue">JINST 20 · 2025</div>
+        <div class="paper-title">OmniJet-αC: Learning point cloud calorimeter simulations using generative transformers</div>
+      </div>
+      <div class="paper-arrow">↗</div>
+    </a>
+
+    <a class="paper-item" href="https://arxiv.org/abs/2304.08610" target="_blank">
+      <div>
+        <div class="paper-venue">Comput. Softw. Big Sci. · 2023</div>
+        <div class="paper-title">GNN for Deep Full Event Interpretation and hierarchical reconstruction of heavy-hadron decays</div>
+      </div>
+      <div class="paper-arrow">↗</div>
+    </a>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="code">
+  <div class="section-label">Open source</div>
+  <h2>Code</h2>
+  <div class="code-grid">
+
+    <a class="code-card" href="https://github.com/FLC-QU-hep/CaloHadronic" target="_blank">
+      <div class="code-card-name">CaloHadronic</div>
+      <div class="code-card-desc">Diffusion model for hadronic shower generation in ECal and HCal as point clouds.</div>
+      <div class="code-card-lang">Python · FLC-QU-hep</div>
+    </a>
+
+    <a class="code-card" href="https://github.com/uhh-pd-ml/SPADE" target="_blank">
+      <div class="code-card-name">SPADE</div>
+      <div class="code-card-desc">Split-and-delay embeddings for autoregressive high-granularity calorimeter simulation.</div>
+      <div class="code-card-lang">Python · uhh-pd-ml</div>
+    </a>
+
+    <a class="code-card" href="https://github.com/fast-sim/step2point" target="_blank">
+      <div class="code-card-name">step2point</div>
+      <div class="code-card-desc">Compressing calorimeter shower data (x, y, z, E) into point clouds preserving key physics observables.</div>
+      <div class="code-card-lang">Python · fast-sim</div>
+    </a>
+
+    <a class="code-card" href="https://github.com/FLC-QU-hep/CaloClouds-3" target="_blank">
+      <div class="code-card-name">CaloClouds-3</div>
+      <div class="code-card-desc">Ultra-fast geometry-independent highly-granular calorimeter simulation.</div>
+      <div class="code-card-lang">Python · FLC-QU-hep</div>
+    </a>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="contact">
+  <div class="section-label">Get in touch</div>
+  <h2>Contact</h2>
+  <div class="contact-grid">
+    <div class="contact-text">
+      I'm a PhD researcher at <strong>Universität Hamburg</strong> working at the intersection of <strong>deep generative modelling</strong> and <strong>particle physics simulation</strong>.<br><br>
+      Open to collaborations, internships, and conversations about ML for science.
+    </div>
+    <div class="contact-links">
+      <a class="contact-link" href="https://www.linkedin.com/in/martina-mozzanica-20017b202/" target="_blank">
+        <span>💼</span><span>LinkedIn</span>
+      </a>
+      <a class="contact-link" href="https://github.com/Mmozzanica5" target="_blank">
+        <span>🐙</span><span>GitHub</span>
+      </a>
+      <a class="contact-link" href="https://huggingface.co/mmozzani" target="_blank">
+        <span>🤗</span><span>Hugging Face</span>
+      </a>
+      <a class="contact-link" href="https://orcid.org/0009-0002-1111-6247" target="_blank">
+        <span>🔬</span><span>ORCID</span>
+      </a>
+      <a class="contact-link" href="https://inspirehep.net/literature?q=a%20Mozzanica%2C%20Martina" target="_blank">
+        <span>📄</span><span>INSPIRE HEP</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>Martina Mozzanica · Universität Hamburg</span>
+  <span>2026</span>
+</footer>
+
+<script>
+  // Nav scroll effect
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Subtle glow follows cursor
+  const glow = document.getElementById('glow');
+  document.addEventListener('mousemove', e => {
+    glow.style.transform = `translate(${e.clientX - 50}px, ${e.clientY - 50}px)`;
+  });
+</script>
+
+</body>
+</html>
