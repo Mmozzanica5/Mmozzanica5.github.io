@@ -258,6 +258,25 @@
       line-height: 1.4;
       transition: color 0.2s;
     }
+    .paper-item { display: block; }
+    .paper-title { display: block; text-decoration: none; font-size: 17px; font-weight: 600; margin-bottom: 6px; }
+    .paper-title:hover { color: var(--indigo); }
+    .paper-authors { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
+    .paper-authors strong { color: var(--text); font-weight: 600; }
+    .paper-summary { font-size: 14px; color: #3d3a58; line-height: 1.65; margin-bottom: 12px; }
+    .paper-links { display: flex; gap: 8px; flex-wrap: wrap; }
+    .paper-links a {
+      font-size: 12px; font-weight: 600; text-decoration: none;
+      color: var(--indigo); background: rgba(99, 91, 255, 0.08);
+      border: 1px solid rgba(99, 91, 255, 0.2); border-radius: 999px; padding: 4px 12px;
+      transition: all 0.2s;
+    }
+    .paper-links a:hover { background: var(--indigo); color: #fff; }
+    .code-group {
+      font-family: var(--font-display); font-size: 15px; font-weight: 600; color: var(--muted);
+      margin: 8px 0 16px;
+    }
+    .code-grid + .code-group { margin-top: 40px; }
     .paper-arrow {
       font-size: 18px;
       color: #c9c4e0;
@@ -457,65 +476,63 @@
 
 <section id="papers">
   <div class="section-label" style="--c: var(--pink)">Publications</div>
-  <h2>Selected papers</h2>
+  <h2>All papers</h2>
   <div class="papers-list">
+    <div class="paper-item">
+      <div class="paper-venue venue-other">Proceedings · 2026</div>
+      <a class="paper-title" href="https://arxiv.org/abs/2609.30403" target="_blank">Point-cloud generative models for fast calorimeter simulation across particles and geometries</a>
+      <div class="paper-authors">T. Buss, H. Day-Hall, F. Gaede, G. Kasieczka, K. Krüger, A. Korol, T. Madlener, P. McKeown, <strong>M. Mozzanica</strong>, L. Valente</div>
+      <p class="paper-summary">A review of point-cloud fast simulation for highly granular calorimeters: CaloClouds3 for photon showers, about 120 times faster than Geant4 on one CPU; CaloHadronic for pion showers across the electromagnetic and hadronic calorimeters; AllShowers, which covers twelve particle types in a single, smaller model; and cross-geometry transfer learning, which needs 100 to 1000 times fewer training showers.</p>
+      <div class="paper-links"><a href="https://arxiv.org/abs/2609.30403" target="_blank">arXiv:2609.30403</a></div>
+    </div>
 
-    <a class="paper-item" href="https://arxiv.org/abs/2609.30403" target="_blank">
-      <div>
-        <div class="paper-venue venue-arxiv">arXiv · 2025</div>
-        <div class="paper-title">Point-cloud generative models for fast calorimeter simulation across particles and geometries</div>
-      </div>
-      <div class="paper-arrow">↗</div>
-    </a>
+    <div class="paper-item">
+      <div class="paper-venue venue-other">Proceedings · 2026</div>
+      <a class="paper-title" href="https://arxiv.org/abs/2609.24306" target="_blank">Jevons&#x27; Paradox and Fast Generative Simulation for HEP: Why Realistic Benchmarking is Essential</a>
+      <div class="paper-authors">T. Buss, H. Day-Hall, F. Gaede, G. Kasieczka, K. Krüger, A. Korol, T. Madlener, P. McKeown, <strong>M. Mozzanica</strong>, L. Valente</div>
+      <p class="paper-summary">Calorimeter simulation drives much of the computing and energy cost of HEP analyses. Fast generative models make it about 100 times cheaper, but cheaper simulation invites more of it: Jevons' paradox. The paper argues that realistic benchmarks are needed for these speed-ups to turn into real efficiency.</p>
+      <div class="paper-links"><a href="https://arxiv.org/abs/2609.24306" target="_blank">arXiv:2609.24306</a></div>
+    </div>
 
-    <a class="paper-item" href="https://arxiv.org/abs/2609.24306" target="_blank">
-      <div>
-        <div class="paper-venue venue-arxiv">arXiv · 2025</div>
-        <div class="paper-title">Jevons' Paradox and Fast Generative Simulation for HEP: Why Realistic Benchmarking is Essential</div>
-      </div>
-      <div class="paper-arrow">↗</div>
-    </a>
+    <div class="paper-item">
+      <div class="paper-venue venue-arxiv">arXiv · 2026</div>
+      <a class="paper-title" href="https://arxiv.org/abs/2606.11304" target="_blank">SPADE: Split-and-Delay Embeddings for Autoregressive High-Granularity Calorimeter Simulation</a>
+      <div class="paper-authors">J. Birk, F. Gaede, A. Hallin, G. Kasieczka, <strong>M. Mozzanica</strong>, H. Rose</div>
+      <p class="paper-summary">An autoregressive transformer that embeds each feature of a multi-feature token separately and delays the feature streams against each other, so that ordinary self-attention learns the correlations inside a token. On ILD photon showers it matches the state-of-the-art AllShowers model and clearly beats its predecessor OmniJet-α<sub>C</sub>.</p>
+      <div class="paper-links"><a href="https://arxiv.org/abs/2606.11304" target="_blank">arXiv:2606.11304</a> <a href="https://github.com/uhh-pd-ml/SPADE" target="_blank">Code</a></div>
+    </div>
 
-    <a class="paper-item" href="https://arxiv.org/abs/2606.11304" target="_blank">
-      <div>
-        <div class="paper-venue venue-arxiv">arXiv · 2025</div>
-        <div class="paper-title">SPADE: Split-and-Delay Embeddings for Autoregressive High-Granularity Calorimeter Simulation</div>
-      </div>
-      <div class="paper-arrow">↗</div>
-    </a>
+    <div class="paper-item">
+      <div class="paper-venue venue-journal">JINST 21 · 2026</div>
+      <a class="paper-title" href="https://arxiv.org/abs/2511.01460" target="_blank">CaloClouds3: Ultra-fast geometry-independent highly-granular calorimeter simulation</a>
+      <div class="paper-authors">T. Buss, H. Day-Hall, F. Gaede, G. Kasieczka, K. Krüger, A. Korol, T. Madlener, P. McKeown, <strong>M. Mozzanica</strong>, L. Valente</div>
+      <p class="paper-summary">Photon showers for the whole barrel of a highly granular detector. Angular conditioning reproduces photons at every incident angle, and position-agnostic training data let one model serve the entire barrel, so it runs inside the full simulation and reconstruction chain. Optimised preprocessing gives a speed-up of two orders of magnitude over Geant4.</p>
+      <div class="paper-links"><a href="https://arxiv.org/abs/2511.01460" target="_blank">arXiv:2511.01460</a> <a href="https://doi.org/10.1088/1748-0221/21/03/P03018" target="_blank">Journal</a> <a href="https://github.com/FLC-QU-hep/CaloClouds-3" target="_blank">Code</a></div>
+    </div>
 
-    <a class="paper-item" href="https://doi.org/10.1088/1748-0221/21/03/P03018" target="_blank">
-      <div>
-        <div class="paper-venue venue-journal">JINST 21 · 2026</div>
-        <div class="paper-title">CaloClouds3: Ultra-Fast Geometry-Independent Highly-Granular Calorimeter Simulation</div>
-      </div>
-      <div class="paper-arrow">↗</div>
-    </a>
+    <div class="paper-item">
+      <div class="paper-venue venue-journal">JINST 21 · 2026</div>
+      <a class="paper-title" href="https://arxiv.org/abs/2506.21720" target="_blank">CaloHadronic: a diffusion model for the generation of hadronic showers</a>
+      <div class="paper-authors">T. Buss, F. Gaede, G. Kasieczka, A. Korol, K. Krüger, P. McKeown, <strong>M. Mozzanica</strong></div>
+      <p class="paper-summary">Extends point-cloud diffusion from electromagnetic to hadronic showers with transformer attention, which captures their richer substructure. It is the first machine-learning model that generates showers holistically across both the electromagnetic and the hadronic calorimeter of a highly granular imaging system, the ILD detector.</p>
+      <div class="paper-links"><a href="https://arxiv.org/abs/2506.21720" target="_blank">arXiv:2506.21720</a> <a href="https://doi.org/10.1088/1748-0221/21/01/P01042" target="_blank">Journal</a> <a href="https://github.com/FLC-QU-hep/CaloHadronic" target="_blank">Code</a></div>
+    </div>
 
-    <a class="paper-item" href="https://arxiv.org/abs/2506.21720" target="_blank">
-      <div>
-        <div class="paper-venue venue-journal">JINST 21 · 2026</div>
-        <div class="paper-title">CaloHadronic: a diffusion model for the generation of hadronic showers</div>
-      </div>
-      <div class="paper-arrow">↗</div>
-    </a>
+    <div class="paper-item">
+      <div class="paper-venue venue-journal">JINST 20 · 2025</div>
+      <a class="paper-title" href="https://arxiv.org/abs/2501.05534" target="_blank">OmniJet-α<sub>C</sub>: learning point cloud calorimeter simulations using generative transformers</a>
+      <div class="paper-authors">J. Birk, F. Gaede, A. Hallin, G. Kasieczka, <strong>M. Mozzanica</strong>, H. Rose</div>
+      <p class="paper-summary">The first generative transformer for calorimeter showers as point clouds. The OmniJet-α tokenizer turns detector hits into sequences of integers; sequences of variable length let showers develop naturally without fixing the number of hits, and the model learns the shower geometry without being tied to a voxel grid.</p>
+      <div class="paper-links"><a href="https://arxiv.org/abs/2501.05534" target="_blank">arXiv:2501.05534</a> <a href="https://doi.org/10.1088/1748-0221/20/07/P07007" target="_blank">Journal</a> <a href="https://github.com/uhh-pd-ml/omnijet_alpha_c" target="_blank">Code</a></div>
+    </div>
 
-    <a class="paper-item" href="https://arxiv.org/abs/2501.05534" target="_blank">
-      <div>
-        <div class="paper-venue venue-journal">JINST 20 · 2025</div>
-        <div class="paper-title">OmniJet-αC: Learning point cloud calorimeter simulations using generative transformers</div>
-      </div>
-      <div class="paper-arrow">↗</div>
-    </a>
-
-    <a class="paper-item" href="https://arxiv.org/abs/2304.08610" target="_blank">
-      <div>
-        <div class="paper-venue venue-other">Comput. Softw. Big Sci. · 2023</div>
-        <div class="paper-title">GNN for Deep Full Event Interpretation and hierarchical reconstruction of heavy-hadron decays</div>
-      </div>
-      <div class="paper-arrow">↗</div>
-    </a>
-
+    <div class="paper-item">
+      <div class="paper-venue venue-journal">Comput. Softw. Big Sci. 7 · 2023</div>
+      <a class="paper-title" href="https://arxiv.org/abs/2304.08610" target="_blank">GNN for Deep Full Event Interpretation and Hierarchical Reconstruction of Heavy-Hadron Decays in Proton–Proton Collisions</a>
+      <div class="paper-authors">J. García Pardinas, M. Calvi, J. Eschle, A. Mauri, S. Meloni, <strong>M. Mozzanica</strong>, N. Serra</div>
+      <p class="paper-summary">The first prototype of a Deep Full Event Interpretation for LHCb: a graph neural network that identifies, isolates and hierarchically reconstructs all heavy-hadron decay chains in an event at once. Keeping only the relevant particles saves trigger storage and bandwidth under the higher pile-up of LHCb Upgrade I.</p>
+      <div class="paper-links"><a href="https://arxiv.org/abs/2304.08610" target="_blank">arXiv:2304.08610</a> <a href="https://doi.org/10.1007/s41781-023-00107-8" target="_blank">Journal</a></div>
+    </div>
   </div>
 </section>
 
@@ -524,38 +541,56 @@
 <section id="code">
   <div class="section-label" style="--c: var(--cyan)">Open source</div>
   <h2>Code</h2>
+  <h3 class="code-group">Repositories I contribute to</h3>
   <div class="code-grid">
-
     <a class="code-card" style="--c1: var(--indigo); --c2: var(--pink)" href="https://github.com/FLC-QU-hep/CaloHadronic" target="_blank">
       <div class="code-card-name">CaloHadronic</div>
-      <div class="code-card-desc">Diffusion model for hadronic shower generation in ECal and HCal as point clouds.</div>
+      <div class="code-card-desc">Diffusion model for hadronic showers across the ECal and HCal, as point clouds. Main developer.</div>
       <div class="code-card-lang">Python · FLC-QU-hep</div>
     </a>
-
+    <a class="code-card" style="--c1: var(--green); --c2: var(--cyan)" href="https://github.com/FLC-QU-hep/CaloClouds-3" target="_blank">
+      <div class="code-card-name">CaloClouds-3</div>
+      <div class="code-card-desc">Ultra-fast, geometry-independent photon-shower simulation for the whole detector barrel.</div>
+      <div class="code-card-lang">Python · FLC-QU-hep</div>
+    </a>
+    <a class="code-card" style="--c1: var(--amber); --c2: var(--pink)" href="https://github.com/fast-sim/step2point" target="_blank">
+      <div class="code-card-name">step2point</div>
+      <div class="code-card-desc">Compresses calorimeter shower data (x, y, z, E) into point clouds while preserving key physics observables.</div>
+      <div class="code-card-lang">Python · fast-sim</div>
+    </a>
+    <a class="code-card" style="--c1: var(--cyan); --c2: var(--indigo)" href="https://github.com/FLC-QU-hep" target="_blank">
+      <div class="code-card-name">FLC-QU-hep</div>
+      <div class="code-card-desc">Organisation of the FLC / Universität Hamburg fast-simulation group; I contributed to its profile page.</div>
+      <div class="code-card-lang">Organisation profile</div>
+    </a>
+    <a class="code-card" style="--c1: var(--pink); --c2: var(--amber)" href="https://github.com/fast-sim" target="_blank">
+      <div class="code-card-name">fast-sim</div>
+      <div class="code-card-desc">Organisation for fast-simulation tools and benchmarks; I set up its profile page.</div>
+      <div class="code-card-lang">Organisation profile</div>
+    </a>
+    <a class="code-card" style="--c1: var(--indigo); --c2: var(--cyan)" href="https://github.com/Mmozzanica5/Mmozzanica5.github.io" target="_blank">
+      <div class="code-card-name">This website</div>
+      <div class="code-card-desc">Source of this page, served by GitHub Pages.</div>
+      <div class="code-card-lang">HTML · Mmozzanica5</div>
+    </a>
+  </div>
+  <h3 class="code-group">Code released with my papers, and more</h3>
+  <div class="code-grid">
     <a class="code-card" style="--c1: var(--cyan); --c2: var(--green)" href="https://github.com/uhh-pd-ml/SPADE" target="_blank">
       <div class="code-card-name">SPADE</div>
       <div class="code-card-desc">Split-and-delay embeddings for autoregressive high-granularity calorimeter simulation.</div>
       <div class="code-card-lang">Python · uhh-pd-ml</div>
     </a>
-
-    <a class="code-card" style="--c1: var(--amber); --c2: var(--pink)" href="https://github.com/fast-sim/step2point" target="_blank">
-      <div class="code-card-name">step2point</div>
-      <div class="code-card-desc">Compressing calorimeter shower data (x, y, z, E) into point clouds preserving key physics observables.</div>
-      <div class="code-card-lang">Python · fast-sim</div>
+    <a class="code-card" style="--c1: var(--pink); --c2: var(--indigo)" href="https://github.com/uhh-pd-ml/omnijet_alpha_c" target="_blank">
+      <div class="code-card-name">OmniJet-α<sub>C</sub></div>
+      <div class="code-card-desc">Generative transformer for point-cloud calorimeter showers, built on OmniJet-α.</div>
+      <div class="code-card-lang">Python · uhh-pd-ml</div>
     </a>
-
-    <a class="code-card" style="--c1: var(--green); --c2: var(--cyan)" href="https://github.com/FLC-QU-hep/CaloClouds-3" target="_blank">
-      <div class="code-card-name">CaloClouds-3</div>
-      <div class="code-card-desc">Ultra-fast geometry-independent highly-granular calorimeter simulation.</div>
-      <div class="code-card-lang">Python · FLC-QU-hep</div>
-    </a>
-
     <a class="code-card" style="--c1: var(--pink); --c2: var(--amber)" href="https://github.com/Mmozzanica5/Mmozzanica5.github.io#university-coursework" target="_blank">
       <div class="code-card-name">University coursework</div>
       <div class="code-card-desc">Bachelor and Master lab reports, statistics and Monte Carlo projects, and both theses.</div>
       <div class="code-card-lang">Bachelor · Master</div>
     </a>
-
   </div>
 </section>
 
