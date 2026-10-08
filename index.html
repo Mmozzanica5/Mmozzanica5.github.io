@@ -4,25 +4,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Martina Mozzanica</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #fbfaff;
+      --bg: #fbfcfe;
       --surface: #ffffff;
-      --border: #e8e4f4;
-      --text: #15122b;
-      --muted: #5d5a78;
-      --indigo: #635bff;
-      --cyan: #00b8e6;
-      --pink: #ff4f9a;
-      --amber: #ff9f1c;
-      --green: #00b383;
-      --accent: var(--indigo);
-      --accent2: var(--pink);
-      --font-display: 'Space Grotesk', sans-serif;
-      --font-body: 'Inter', sans-serif;
+      --border: #e2e7ee;
+      --text: #14243b;
+      --muted: #5a6577;
+      --navy: #194e89;
+      --sky: #3f7fc0;
+      --orange: #c05719;
+      --sand: #d98c3f;
+      --teal: #2f7a8a;
+      --accent: var(--navy);
+      --accent2: var(--orange);
+      --font-display: 'Source Serif 4', Georgia, serif;
+      --font-body: 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
     }
 
     html { scroll-behavior: smooth; }
@@ -60,7 +60,7 @@
     }
     .nav-name::before {
       content: ""; display: inline-block; width: 10px; height: 10px; margin-right: 10px;
-      border-radius: 3px; background: linear-gradient(135deg, var(--indigo), var(--pink));
+      border-radius: 3px; background: linear-gradient(135deg, var(--navy), var(--orange));
     }
     .nav-links { display: flex; gap: 32px; list-style: none; }
     .nav-links a {
@@ -70,17 +70,17 @@
       font-weight: 500;
       transition: color 0.2s;
     }
-    .nav-links a:hover { color: var(--indigo); }
+    .nav-links a:hover { color: var(--navy); }
 
     /* HERO: colour mesh behind the text */
     .hero-wrap { position: relative; overflow: hidden; }
     .hero-wrap::before {
       content: ""; position: absolute; inset: -20% -10% 0 -10%; z-index: 0;
       background:
-        radial-gradient(40% 50% at 78% 30%, rgba(99, 91, 255, 0.45), transparent 70%),
-        radial-gradient(35% 45% at 95% 70%, rgba(255, 79, 154, 0.40), transparent 70%),
-        radial-gradient(30% 40% at 60% 85%, rgba(0, 184, 230, 0.35), transparent 70%),
-        radial-gradient(28% 35% at 88% 5%, rgba(255, 159, 28, 0.35), transparent 70%);
+        radial-gradient(40% 50% at 78% 30%, rgba(25, 78, 137, 0.45), transparent 70%),
+        radial-gradient(35% 45% at 95% 70%, rgba(192, 87, 25, 0.40), transparent 70%),
+        radial-gradient(30% 40% at 60% 85%, rgba(63, 127, 192, 0.30), transparent 70%),
+        radial-gradient(28% 35% at 88% 5%, rgba(226, 190, 167, 0.60), transparent 70%);
       filter: blur(20px);
       animation: drift 18s ease-in-out infinite alternate;
     }
@@ -100,26 +100,26 @@
       font-size: 12px;
       font-weight: 600;
       letter-spacing: 1.5px;
-      color: var(--indigo);
+      color: var(--navy);
       text-transform: uppercase;
       margin-bottom: 24px;
       padding: 6px 12px;
       border-radius: 999px;
-      background: rgba(99, 91, 255, 0.10);
-      border: 1px solid rgba(99, 91, 255, 0.25);
+      background: rgba(25, 78, 137, 0.10);
+      border: 1px solid rgba(25, 78, 137, 0.25);
     }
     .hero h1 {
       font-family: var(--font-display);
       font-size: clamp(42px, 6vw, 76px);
       font-weight: 700;
       line-height: 1.08;
-      letter-spacing: -2px;
+      letter-spacing: -1px;
       color: var(--text);
       margin-bottom: 28px;
     }
     .hero h1 em {
       font-style: normal;
-      background: linear-gradient(100deg, var(--indigo) 0%, var(--pink) 55%, var(--amber) 100%);
+      background: linear-gradient(100deg, var(--navy) 0%, var(--orange) 55%, var(--sand) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -143,18 +143,18 @@
       cursor: pointer;
     }
     .btn-primary {
-      background: linear-gradient(100deg, var(--indigo), var(--pink));
+      background: linear-gradient(100deg, var(--navy), var(--orange));
       color: #fff;
-      box-shadow: 0 8px 24px -8px rgba(99, 91, 255, 0.6);
+      box-shadow: 0 8px 24px -8px rgba(25, 78, 137, 0.6);
     }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 28px -8px rgba(255, 79, 154, 0.6); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 28px -8px rgba(192, 87, 25, 0.6); }
     .btn-ghost {
       border: 1px solid var(--border);
       color: var(--text);
       background: rgba(255, 255, 255, 0.75);
       backdrop-filter: blur(6px);
     }
-    .btn-ghost:hover { border-color: var(--indigo); color: var(--indigo); }
+    .btn-ghost:hover { border-color: var(--navy); color: var(--navy); }
 
     /* SECTIONS */
     section {
@@ -167,7 +167,7 @@
       font-weight: 700;
       letter-spacing: 2px;
       text-transform: uppercase;
-      color: var(--c, var(--indigo));
+      color: var(--c, var(--navy));
       margin-bottom: 16px;
     }
     h2 {
@@ -233,23 +233,23 @@
       text-decoration: none;
       transition: all 0.2s;
     }
-    .paper-item:hover { background: rgba(99, 91, 255, 0.06); }
-    .paper-item:hover .paper-title { color: var(--indigo); }
+    .paper-item:hover { background: rgba(25, 78, 137, 0.06); }
+    .paper-item:hover .paper-title { color: var(--navy); }
     .paper-venue {
       display: inline-block;
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 1px;
       text-transform: uppercase;
-      color: var(--v, var(--indigo));
-      background: color-mix(in srgb, var(--v, var(--indigo)) 12%, white);
+      color: var(--v, var(--navy));
+      background: color-mix(in srgb, var(--v, var(--navy)) 12%, white);
       padding: 3px 10px;
       border-radius: 999px;
       margin-bottom: 8px;
     }
-    .venue-arxiv   { --v: var(--indigo); }
-    .venue-journal { --v: var(--green); }
-    .venue-other   { --v: var(--amber); }
+    .venue-arxiv   { --v: var(--navy); }
+    .venue-journal { --v: var(--teal); }
+    .venue-other   { --v: var(--sand); }
     .paper-title {
       font-family: var(--font-display);
       font-size: 15px;
@@ -260,18 +260,18 @@
     }
     .paper-item { display: block; }
     .paper-title { display: block; text-decoration: none; font-size: 17px; font-weight: 600; margin-bottom: 6px; }
-    .paper-title:hover { color: var(--indigo); }
+    .paper-title:hover { color: var(--navy); }
     .paper-authors { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
     .paper-authors strong { color: var(--text); font-weight: 600; }
-    .paper-summary { font-size: 14px; color: #3d3a58; line-height: 1.65; margin-bottom: 12px; }
+    .paper-summary { font-size: 14px; color: #34404f; line-height: 1.65; margin-bottom: 12px; }
     .paper-links { display: flex; gap: 8px; flex-wrap: wrap; }
     .paper-links a {
       font-size: 12px; font-weight: 600; text-decoration: none;
-      color: var(--indigo); background: rgba(99, 91, 255, 0.08);
-      border: 1px solid rgba(99, 91, 255, 0.2); border-radius: 999px; padding: 4px 12px;
+      color: var(--navy); background: rgba(25, 78, 137, 0.08);
+      border: 1px solid rgba(25, 78, 137, 0.2); border-radius: 999px; padding: 4px 12px;
       transition: all 0.2s;
     }
-    .paper-links a:hover { background: var(--indigo); color: #fff; }
+    .paper-links a:hover { background: var(--navy); color: #fff; }
     .code-group {
       font-family: var(--font-display); font-size: 15px; font-weight: 600; color: var(--muted);
       margin: 8px 0 16px;
@@ -289,17 +289,17 @@
     }
     .tl-event { font-family: var(--font-display); font-size: 15px; font-weight: 600; color: var(--text); }
     .tl-place { font-family: var(--font-body); font-weight: 400; color: var(--muted); font-size: 13px; }
-    .tl-title { font-size: 14px; color: #3d3a58; margin-top: 4px; }
+    .tl-title { font-size: 14px; color: #34404f; margin-top: 4px; }
     .tl-note { font-size: 12px; color: var(--muted); margin-top: 2px; font-style: italic; }
     .timeline .paper-links { margin-top: 8px; }
     @media (max-width: 640px) { .timeline li { grid-template-columns: 1fr; gap: 4px; } }
     .paper-arrow {
       font-size: 18px;
-      color: #c9c4e0;
+      color: #b9c3d1;
       transition: color 0.2s, transform 0.2s;
       margin-top: 20px;
     }
-    .paper-item:hover .paper-arrow { color: var(--pink); transform: translate(2px, -2px); }
+    .paper-item:hover .paper-arrow { color: var(--orange); transform: translate(2px, -2px); }
 
     /* CODE */
     .code-grid {
@@ -320,12 +320,12 @@
     }
     .code-card::before {
       content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px;
-      background: linear-gradient(90deg, var(--c1, var(--indigo)), var(--c2, var(--cyan)));
+      background: linear-gradient(90deg, var(--c1, var(--navy)), var(--c2, var(--sky)));
     }
     .code-card:hover {
       transform: translateY(-4px);
       border-color: transparent;
-      box-shadow: 0 18px 40px -20px var(--c1, var(--indigo));
+      box-shadow: 0 18px 40px -20px var(--c1, var(--navy));
     }
     .code-card-name {
       font-family: var(--font-display);
@@ -341,13 +341,13 @@
     }
     .code-card-lang {
       font-size: 11px;
-      color: var(--c1, var(--indigo));
+      color: var(--c1, var(--navy));
       font-weight: 600;
     }
 
     /* CONTACT */
     .contact-band {
-      background: linear-gradient(120deg, #f1efff 0%, #ffeef6 50%, #e9f9ff 100%);
+      background: linear-gradient(120deg, #eef3fa 0%, #fbf1ea 50%, #f2f6fb 100%);
       border-top: 1px solid var(--border);
     }
     .contact-grid {
@@ -375,7 +375,7 @@
       font-weight: 500;
       transition: all 0.2s;
     }
-    .contact-link:hover { border-color: var(--indigo); color: var(--indigo); transform: translateX(4px); }
+    .contact-link:hover { border-color: var(--navy); color: var(--navy); transform: translateX(4px); }
     .contact-link span:first-child { font-size: 16px; }
 
     /* DIVIDER */
@@ -386,14 +386,14 @@
     }
 
     /* FOOTER */
-    .footer-band { background: #15122b; }
+    .footer-band { background: #14243b; }
     .footer-band::before {
       content: ""; display: block; height: 4px;
-      background: linear-gradient(90deg, var(--indigo), var(--pink), var(--amber), var(--cyan));
+      background: linear-gradient(90deg, var(--navy), var(--orange), var(--sand), var(--sky));
     }
     footer {
       padding: 32px 48px;
-      color: #b9b5d6;
+      color: #b7c4d6;
       font-size: 13px;
       display: flex;
       justify-content: space-between;
@@ -406,7 +406,7 @@
     .glow {
       position: fixed; top: -200px; left: -200px;
       width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(255, 79, 154, 0.10) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(192, 87, 25, 0.10) 0%, transparent 70%);
       pointer-events: none;
       transition: transform 0.8s ease;
       border-radius: 50%;
@@ -463,25 +463,25 @@
 <div class="divider"></div>
 
 <section id="research">
-  <div class="section-label" style="--c: var(--indigo)">What I work on</div>
+  <div class="section-label" style="--c: var(--navy)">What I work on</div>
   <h2>Research focus</h2>
   <div class="research-grid">
-    <div class="research-card" style="--c: var(--indigo)">
+    <div class="research-card" style="--c: var(--navy)">
       <div class="research-icon">⚡</div>
       <h3>Fast Calorimeter Simulation</h3>
       <p>Replacing Geant4 with deep generative models for hadronic shower simulation in ECal and HCal detectors, as point clouds with energy and time.</p>
     </div>
-    <div class="research-card" style="--c: var(--cyan)">
+    <div class="research-card" style="--c: var(--sky)">
       <div class="research-icon">🌊</div>
       <h3>Diffusion & Flow Matching</h3>
       <p>Developing and benchmarking diffusion models and flow matching architectures for high-fidelity, geometry-independent shower generation.</p>
     </div>
-    <div class="research-card" style="--c: var(--pink)">
+    <div class="research-card" style="--c: var(--orange)">
       <div class="research-icon">🔁</div>
       <h3>One-Step Generators</h3>
       <p>Pushing the frontier of inference speed with latent mean-flow generators for pion showers — physics quality at near-zero latency.</p>
     </div>
-    <div class="research-card" style="--c: var(--amber)">
+    <div class="research-card" style="--c: var(--sand)">
       <div class="research-icon">📐</div>
       <h3>Geometry Independence</h3>
       <p>Training models that generalise across calorimeter geometries and particle types, reducing the cost of re-simulation for new detector designs.</p>
@@ -492,7 +492,7 @@
 <div class="divider"></div>
 
 <section id="papers">
-  <div class="section-label" style="--c: var(--pink)">Publications</div>
+  <div class="section-label" style="--c: var(--orange)">Publications</div>
   <h2>All papers</h2>
   <div class="papers-list">
     <div class="paper-item">
@@ -556,17 +556,17 @@
 <div class="divider"></div>
 
 <section id="talks">
-  <div class="section-label" style="--c: var(--amber)">Talks &amp; conferences</div>
+  <div class="section-label" style="--c: var(--sand)">Talks &amp; conferences</div>
   <h2>Talks and conferences</h2>
   <h3 class="code-group">Talks I gave</h3>
-  <ul class="timeline" style="--c: var(--pink)">
+  <ul class="timeline" style="--c: var(--orange)">
       <li><div class="tl-date">Sep 2026</div><div class="tl-body"><div class="tl-event">57th Herbstschule HEP<span class="tl-place"> · Maria Laach, Germany</span></div><div class="tl-title">CaloHadronicVAE: Fast Point Cloud Generation via Latent Diffusion</div><div class="paper-links"><a href="https://indico.physik.uni-siegen.de/event/968/contributions/2514/attachments/1006/2346/MariaLaach_Mozzanica.pdf" target="_blank">Slides</a></div></div></li>
       <li><div class="tl-date">Dec 2025</div><div class="tl-body"><div class="tl-event">HSF Simulation / IML working group: CaloChallenge<span class="tl-place"> · CERN</span></div><div class="tl-title">New results, models, and benchmark criteria</div><div class="tl-note">Presented with G. Kasieczka</div><div class="paper-links"><a href="https://indico.cern.ch/event/1604483/contributions/6813708/" target="_blank">Indico</a></div></div></li>
       <li><div class="tl-date">Nov 2024</div><div class="tl-body"><div class="tl-event">ML4Jets 2024<span class="tl-place"> · LPNHE, Paris</span></div><div class="tl-title">Point-Clouds based Diffusion Model on Hadronic Showers</div><div class="paper-links"><a href="https://indico.cern.ch/event/1386125/contributions/6139672/" target="_blank">Indico</a></div></div></li>
       <li><div class="tl-date">Jul 2023</div><div class="tl-body"><div class="tl-event">Future SOC Lab Day, Hasso Plattner Institute<span class="tl-place"> · Potsdam, Germany</span></div><div class="tl-title">How the lab's GPU resources were used to develop the LHCb Deep Full Event Interpretation</div></div></li>
   </ul>
   <h3 class="code-group">Contributions with my co-authors</h3>
-  <ul class="timeline" style="--c: var(--indigo)">
+  <ul class="timeline" style="--c: var(--navy)">
       <li><div class="tl-date">Jul 2026</div><div class="tl-body"><div class="tl-event">Sustainable HEP 2026<span class="tl-place"> · online</span></div><div class="tl-title">Jevons' Paradox and Fast Generative Simulation for HEP: Why Realistic Benchmarking is Essential</div><div class="tl-note">Proceedings</div><div class="paper-links"><a href="https://arxiv.org/abs/2609.24306" target="_blank">arXiv</a></div></div></li>
       <li><div class="tl-date">May 2026</div><div class="tl-body"><div class="tl-event">LHCP 2026<span class="tl-place"> · Paris</span></div><div class="tl-title">Point-cloud generative models for fast calorimeter simulation across particles and geometries</div><div class="tl-note">Proceedings</div><div class="paper-links"><a href="https://arxiv.org/abs/2609.30403" target="_blank">arXiv</a></div></div></li>
       <li><div class="tl-date">Sep 2025</div><div class="tl-body"><div class="tl-event">ACAT 2025<span class="tl-place"> · Hamburg</span></div><div class="tl-title">Point-clouds based generative models on hadronic showers</div><div class="tl-note">Presented by T. Buss</div><div class="paper-links"><a href="https://indico.cern.ch/event/1488410/contributions/6562967/" target="_blank">Indico</a></div></div></li>
@@ -575,7 +575,7 @@
       <li><div class="tl-date">Nov 2024</div><div class="tl-body"><div class="tl-event">ML4Jets 2024<span class="tl-place"> · LPNHE, Paris</span></div><div class="tl-title">Generative transformers for learning point-cloud simulations</div><div class="tl-note">Presented by H. Rose</div><div class="paper-links"><a href="https://indico.cern.ch/event/1386125/contributions/6139665/" target="_blank">Indico</a></div></div></li>
   </ul>
   <h3 class="code-group">Also attended</h3>
-  <ul class="timeline" style="--c: var(--cyan)">
+  <ul class="timeline" style="--c: var(--sky)">
       <li><div class="tl-date">Sep 2026</div><div class="tl-body"><div class="tl-event">ML4Jets 2026<span class="tl-place"> · University of Vienna</span></div></div></li>
       <li><div class="tl-date">Jun 2025</div><div class="tl-body"><div class="tl-event">EuCAIFCon 2025, European AI for Fundamental Physics Conference<span class="tl-place"> · Cagliari, Italy</span></div></div></li>
       <li><div class="tl-date">Apr 2025</div><div class="tl-body"><div class="tl-event">DPG Spring Meeting 2025<span class="tl-place"> · Germany</span></div></div></li>
@@ -588,36 +588,36 @@
 <div class="divider"></div>
 
 <section id="code">
-  <div class="section-label" style="--c: var(--cyan)">Open source</div>
+  <div class="section-label" style="--c: var(--sky)">Open source</div>
   <h2>Code</h2>
   <h3 class="code-group">Repositories I contribute to</h3>
   <div class="code-grid">
-    <a class="code-card" style="--c1: var(--indigo); --c2: var(--pink)" href="https://github.com/FLC-QU-hep/CaloHadronic" target="_blank">
+    <a class="code-card" style="--c1: var(--navy); --c2: var(--orange)" href="https://github.com/FLC-QU-hep/CaloHadronic" target="_blank">
       <div class="code-card-name">CaloHadronic</div>
       <div class="code-card-desc">Diffusion model for hadronic showers across the ECal and HCal, as point clouds. Main developer.</div>
       <div class="code-card-lang">Python · FLC-QU-hep</div>
     </a>
-    <a class="code-card" style="--c1: var(--green); --c2: var(--cyan)" href="https://github.com/FLC-QU-hep/CaloClouds-3" target="_blank">
+    <a class="code-card" style="--c1: var(--teal); --c2: var(--sky)" href="https://github.com/FLC-QU-hep/CaloClouds-3" target="_blank">
       <div class="code-card-name">CaloClouds-3</div>
       <div class="code-card-desc">Ultra-fast, geometry-independent photon-shower simulation for the whole detector barrel.</div>
       <div class="code-card-lang">Python · FLC-QU-hep</div>
     </a>
-    <a class="code-card" style="--c1: var(--amber); --c2: var(--pink)" href="https://github.com/fast-sim/step2point" target="_blank">
+    <a class="code-card" style="--c1: var(--sand); --c2: var(--orange)" href="https://github.com/fast-sim/step2point" target="_blank">
       <div class="code-card-name">step2point</div>
       <div class="code-card-desc">Compresses calorimeter shower data (x, y, z, E) into point clouds while preserving key physics observables.</div>
       <div class="code-card-lang">Python · fast-sim</div>
     </a>
-    <a class="code-card" style="--c1: var(--cyan); --c2: var(--indigo)" href="https://github.com/FLC-QU-hep" target="_blank">
+    <a class="code-card" style="--c1: var(--sky); --c2: var(--navy)" href="https://github.com/FLC-QU-hep" target="_blank">
       <div class="code-card-name">FLC-QU-hep</div>
       <div class="code-card-desc">Organisation of the FLC / Universität Hamburg fast-simulation group; I contributed to its profile page.</div>
       <div class="code-card-lang">Organisation profile</div>
     </a>
-    <a class="code-card" style="--c1: var(--pink); --c2: var(--amber)" href="https://github.com/fast-sim" target="_blank">
+    <a class="code-card" style="--c1: var(--orange); --c2: var(--sand)" href="https://github.com/fast-sim" target="_blank">
       <div class="code-card-name">fast-sim</div>
       <div class="code-card-desc">Organisation for fast-simulation tools and benchmarks; I set up its profile page.</div>
       <div class="code-card-lang">Organisation profile</div>
     </a>
-    <a class="code-card" style="--c1: var(--indigo); --c2: var(--cyan)" href="https://github.com/Mmozzanica5/Mmozzanica5.github.io" target="_blank">
+    <a class="code-card" style="--c1: var(--navy); --c2: var(--sky)" href="https://github.com/Mmozzanica5/Mmozzanica5.github.io" target="_blank">
       <div class="code-card-name">This website</div>
       <div class="code-card-desc">Source of this page, served by GitHub Pages.</div>
       <div class="code-card-lang">HTML · Mmozzanica5</div>
@@ -625,17 +625,17 @@
   </div>
   <h3 class="code-group">Code released with my papers, and more</h3>
   <div class="code-grid">
-    <a class="code-card" style="--c1: var(--cyan); --c2: var(--green)" href="https://github.com/uhh-pd-ml/SPADE" target="_blank">
+    <a class="code-card" style="--c1: var(--sky); --c2: var(--teal)" href="https://github.com/uhh-pd-ml/SPADE" target="_blank">
       <div class="code-card-name">SPADE</div>
       <div class="code-card-desc">Split-and-delay embeddings for autoregressive high-granularity calorimeter simulation.</div>
       <div class="code-card-lang">Python · uhh-pd-ml</div>
     </a>
-    <a class="code-card" style="--c1: var(--pink); --c2: var(--indigo)" href="https://github.com/uhh-pd-ml/omnijet_alpha_c" target="_blank">
+    <a class="code-card" style="--c1: var(--orange); --c2: var(--navy)" href="https://github.com/uhh-pd-ml/omnijet_alpha_c" target="_blank">
       <div class="code-card-name">OmniJet-α<sub>C</sub></div>
       <div class="code-card-desc">Generative transformer for point-cloud calorimeter showers, built on OmniJet-α.</div>
       <div class="code-card-lang">Python · uhh-pd-ml</div>
     </a>
-    <a class="code-card" style="--c1: var(--pink); --c2: var(--amber)" href="https://github.com/Mmozzanica5/Mmozzanica5.github.io#university-coursework" target="_blank">
+    <a class="code-card" style="--c1: var(--orange); --c2: var(--sand)" href="https://github.com/Mmozzanica5/Mmozzanica5.github.io#university-coursework" target="_blank">
       <div class="code-card-name">University coursework</div>
       <div class="code-card-desc">Bachelor and Master lab reports, statistics and Monte Carlo projects, and both theses.</div>
       <div class="code-card-lang">Bachelor · Master</div>
@@ -645,7 +645,7 @@
 
 <div class="contact-band">
 <section id="contact">
-  <div class="section-label" style="--c: var(--green)">Get in touch</div>
+  <div class="section-label" style="--c: var(--teal)">Get in touch</div>
   <h2>Contact</h2>
   <div class="contact-grid">
     <div class="contact-text">
