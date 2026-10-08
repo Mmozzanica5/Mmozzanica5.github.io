@@ -276,7 +276,23 @@
       font-family: var(--font-display); font-size: 15px; font-weight: 600; color: var(--muted);
       margin: 8px 0 16px;
     }
-    .code-grid + .code-group { margin-top: 40px; }
+    .code-grid + .code-group, .timeline + .code-group { margin-top: 40px; }
+    .timeline { list-style: none; margin-bottom: 8px; }
+    .timeline li {
+      display: grid; grid-template-columns: 96px 1fr; gap: 20px;
+      padding: 14px 0 14px 0; border-bottom: 1px solid var(--border); position: relative;
+    }
+    .tl-date { font-size: 12px; font-weight: 700; letter-spacing: 0.5px; color: var(--c); padding-top: 2px; white-space: nowrap; }
+    .tl-date::before {
+      content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%;
+      background: var(--c); margin-right: 8px; vertical-align: 1px;
+    }
+    .tl-event { font-family: var(--font-display); font-size: 15px; font-weight: 600; color: var(--text); }
+    .tl-place { font-family: var(--font-body); font-weight: 400; color: var(--muted); font-size: 13px; }
+    .tl-title { font-size: 14px; color: #3d3a58; margin-top: 4px; }
+    .tl-note { font-size: 12px; color: var(--muted); margin-top: 2px; font-style: italic; }
+    .timeline .paper-links { margin-top: 8px; }
+    @media (max-width: 640px) { .timeline li { grid-template-columns: 1fr; gap: 4px; } }
     .paper-arrow {
       font-size: 18px;
       color: #c9c4e0;
@@ -421,6 +437,7 @@
   <ul class="nav-links">
     <li><a href="#research">Research</a></li>
     <li><a href="#papers">Papers</a></li>
+    <li><a href="#talks">Talks</a></li>
     <li><a href="#code">Code</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="CV_A4.pdf" target="_blank">CV</a></li>
@@ -534,6 +551,38 @@
       <div class="paper-links"><a href="https://arxiv.org/abs/2304.08610" target="_blank">arXiv:2304.08610</a> <a href="https://doi.org/10.1007/s41781-023-00107-8" target="_blank">Journal</a></div>
     </div>
   </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="talks">
+  <div class="section-label" style="--c: var(--amber)">Talks &amp; conferences</div>
+  <h2>Talks and conferences</h2>
+  <h3 class="code-group">Talks I gave</h3>
+  <ul class="timeline" style="--c: var(--pink)">
+      <li><div class="tl-date">Sep 2026</div><div class="tl-body"><div class="tl-event">57th Herbstschule HEP<span class="tl-place"> · Maria Laach, Germany</span></div><div class="tl-title">CaloHadronicVAE: Fast Point Cloud Generation via Latent Diffusion</div><div class="paper-links"><a href="https://indico.physik.uni-siegen.de/event/968/contributions/2514/attachments/1006/2346/MariaLaach_Mozzanica.pdf" target="_blank">Slides</a></div></div></li>
+      <li><div class="tl-date">Dec 2025</div><div class="tl-body"><div class="tl-event">HSF Simulation / IML working group: CaloChallenge<span class="tl-place"> · CERN</span></div><div class="tl-title">New results, models, and benchmark criteria</div><div class="tl-note">Presented with G. Kasieczka</div><div class="paper-links"><a href="https://indico.cern.ch/event/1604483/contributions/6813708/" target="_blank">Indico</a></div></div></li>
+      <li><div class="tl-date">Nov 2024</div><div class="tl-body"><div class="tl-event">ML4Jets 2024<span class="tl-place"> · LPNHE, Paris</span></div><div class="tl-title">Point-Clouds based Diffusion Model on Hadronic Showers</div><div class="paper-links"><a href="https://indico.cern.ch/event/1386125/contributions/6139672/" target="_blank">Indico</a></div></div></li>
+      <li><div class="tl-date">Jul 2023</div><div class="tl-body"><div class="tl-event">Future SOC Lab Day, Hasso Plattner Institute<span class="tl-place"> · Potsdam, Germany</span></div><div class="tl-title">How the lab's GPU resources were used to develop the LHCb Deep Full Event Interpretation</div></div></li>
+  </ul>
+  <h3 class="code-group">Contributions with my co-authors</h3>
+  <ul class="timeline" style="--c: var(--indigo)">
+      <li><div class="tl-date">Jul 2026</div><div class="tl-body"><div class="tl-event">Sustainable HEP 2026<span class="tl-place"> · online</span></div><div class="tl-title">Jevons' Paradox and Fast Generative Simulation for HEP: Why Realistic Benchmarking is Essential</div><div class="tl-note">Proceedings</div><div class="paper-links"><a href="https://arxiv.org/abs/2609.24306" target="_blank">arXiv</a></div></div></li>
+      <li><div class="tl-date">May 2026</div><div class="tl-body"><div class="tl-event">LHCP 2026<span class="tl-place"> · Paris</span></div><div class="tl-title">Point-cloud generative models for fast calorimeter simulation across particles and geometries</div><div class="tl-note">Proceedings</div><div class="paper-links"><a href="https://arxiv.org/abs/2609.30403" target="_blank">arXiv</a></div></div></li>
+      <li><div class="tl-date">Sep 2025</div><div class="tl-body"><div class="tl-event">ACAT 2025<span class="tl-place"> · Hamburg</span></div><div class="tl-title">Point-clouds based generative models on hadronic showers</div><div class="tl-note">Presented by T. Buss</div><div class="paper-links"><a href="https://indico.cern.ch/event/1488410/contributions/6562967/" target="_blank">Indico</a></div></div></li>
+      <li><div class="tl-date">Sep 2025</div><div class="tl-body"><div class="tl-event">ACAT 2025<span class="tl-place"> · Hamburg</span></div><div class="tl-title">A Library for ML-based Fast Calorimeter Shower Simulation at Future Collider Experiments and Beyond</div><div class="tl-note">Presented by P. McKeown</div><div class="paper-links"><a href="https://indico.cern.ch/event/1488410/contributions/6562915/" target="_blank">Indico</a></div></div></li>
+      <li><div class="tl-date">May 2025</div><div class="tl-body"><div class="tl-event">7th Inter-Experimental LHC Machine Learning Workshop<span class="tl-place"> · CERN</span></div><div class="tl-title">DDFastShowerML: A Library for ML-based Fast Calorimeter Shower Simulation</div><div class="tl-note">Presented by P. McKeown</div><div class="paper-links"><a href="https://indico.cern.ch/event/1502120/contributions/6505984/" target="_blank">Indico</a></div></div></li>
+      <li><div class="tl-date">Nov 2024</div><div class="tl-body"><div class="tl-event">ML4Jets 2024<span class="tl-place"> · LPNHE, Paris</span></div><div class="tl-title">Generative transformers for learning point-cloud simulations</div><div class="tl-note">Presented by H. Rose</div><div class="paper-links"><a href="https://indico.cern.ch/event/1386125/contributions/6139665/" target="_blank">Indico</a></div></div></li>
+  </ul>
+  <h3 class="code-group">Also attended</h3>
+  <ul class="timeline" style="--c: var(--cyan)">
+      <li><div class="tl-date">Sep 2026</div><div class="tl-body"><div class="tl-event">ML4Jets 2026<span class="tl-place"> · University of Vienna</span></div></div></li>
+      <li><div class="tl-date">Jun 2025</div><div class="tl-body"><div class="tl-event">EuCAIFCon 2025, European AI for Fundamental Physics Conference<span class="tl-place"> · Cagliari, Italy</span></div></div></li>
+      <li><div class="tl-date">Apr 2025</div><div class="tl-body"><div class="tl-event">DPG Spring Meeting 2025<span class="tl-place"> · Germany</span></div></div></li>
+      <li><div class="tl-date">Mar 2025</div><div class="tl-body"><div class="tl-event">ELLIS Winter School<span class="tl-place"> · Amsterdam</span></div></div></li>
+      <li><div class="tl-date">Jun 2024</div><div class="tl-body"><div class="tl-event">Summer School on Generative Modelling<span class="tl-place"> · TU Eindhoven</span></div></div></li>
+      <li><div class="tl-date">Mar 2024</div><div class="tl-body"><div class="tl-event">DPG Spring Meeting 2024<span class="tl-place"> · Germany</span></div></div></li>
+  </ul>
 </section>
 
 <div class="divider"></div>
