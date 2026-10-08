@@ -3,7 +3,7 @@
 Source of my personal website: **[mmozzanica5.github.io](https://mmozzanica5.github.io)**
 
 PhD researcher at Universität Hamburg, working on fast simulation of particle showers with deep generative models.
-The site lists my research, papers, code and contact links. It is a single `index.html`, served by GitHub Pages.
+The site lists my research, papers, code and contact links. My CV is [CV_A4.pdf](CV_A4.pdf). It is a single `index.html`, served by GitHub Pages.
 
 ## University coursework
 
