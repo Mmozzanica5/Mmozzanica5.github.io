@@ -9,13 +9,18 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #080c10;
-      --surface: #0e1419;
-      --border: #1c2530;
-      --text: #e8edf2;
-      --muted: #6b7d8f;
-      --accent: #4fc3f7;
-      --accent2: #7c4dff;
+      --bg: #fbfaff;
+      --surface: #ffffff;
+      --border: #e8e4f4;
+      --text: #15122b;
+      --muted: #5d5a78;
+      --indigo: #635bff;
+      --cyan: #00b8e6;
+      --pink: #ff4f9a;
+      --amber: #ff9f1c;
+      --green: #00b383;
+      --accent: var(--indigo);
+      --accent2: var(--pink);
       --font-display: 'Space Grotesk', sans-serif;
       --font-body: 'Inter', sans-serif;
     }
@@ -29,6 +34,7 @@
       font-size: 15px;
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
 
     /* NAV */
@@ -40,8 +46,8 @@
       transition: border-color 0.3s, background 0.3s;
     }
     nav.scrolled {
-      background: rgba(8, 12, 16, 0.92);
-      backdrop-filter: blur(12px);
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(14px);
       border-color: var(--border);
     }
     .nav-name {
@@ -52,31 +58,55 @@
       color: var(--text);
       text-decoration: none;
     }
+    .nav-name::before {
+      content: ""; display: inline-block; width: 10px; height: 10px; margin-right: 10px;
+      border-radius: 3px; background: linear-gradient(135deg, var(--indigo), var(--pink));
+    }
     .nav-links { display: flex; gap: 32px; list-style: none; }
     .nav-links a {
       color: var(--muted);
       text-decoration: none;
       font-size: 14px;
-      font-weight: 400;
+      font-weight: 500;
       transition: color 0.2s;
     }
-    .nav-links a:hover { color: var(--text); }
+    .nav-links a:hover { color: var(--indigo); }
 
-    /* HERO */
+    /* HERO: colour mesh behind the text */
+    .hero-wrap { position: relative; overflow: hidden; }
+    .hero-wrap::before {
+      content: ""; position: absolute; inset: -20% -10% 0 -10%; z-index: 0;
+      background:
+        radial-gradient(40% 50% at 78% 30%, rgba(99, 91, 255, 0.45), transparent 70%),
+        radial-gradient(35% 45% at 95% 70%, rgba(255, 79, 154, 0.40), transparent 70%),
+        radial-gradient(30% 40% at 60% 85%, rgba(0, 184, 230, 0.35), transparent 70%),
+        radial-gradient(28% 35% at 88% 5%, rgba(255, 159, 28, 0.35), transparent 70%);
+      filter: blur(20px);
+      animation: drift 18s ease-in-out infinite alternate;
+    }
+    @keyframes drift {
+      from { transform: translate3d(0, 0, 0) scale(1); }
+      to   { transform: translate3d(-4%, 3%, 0) scale(1.08); }
+    }
     .hero {
       min-height: 100vh;
       display: flex; flex-direction: column; justify-content: center;
       padding: 120px 48px 80px;
       max-width: 960px;
-      position: relative;
+      position: relative; z-index: 1;
     }
     .hero-tag {
+      align-self: flex-start;
       font-size: 12px;
-      font-weight: 500;
+      font-weight: 600;
       letter-spacing: 1.5px;
-      color: var(--accent);
+      color: var(--indigo);
       text-transform: uppercase;
       margin-bottom: 24px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(99, 91, 255, 0.10);
+      border: 1px solid rgba(99, 91, 255, 0.25);
     }
     .hero h1 {
       font-family: var(--font-display);
@@ -89,7 +119,7 @@
     }
     .hero h1 em {
       font-style: normal;
-      background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+      background: linear-gradient(100deg, var(--indigo) 0%, var(--pink) 55%, var(--amber) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -101,28 +131,30 @@
       line-height: 1.7;
       margin-bottom: 40px;
     }
-    .hero-links { display: flex; gap: 16px; flex-wrap: wrap; }
+    .hero-links { display: flex; gap: 14px; flex-wrap: wrap; }
     .btn {
       display: inline-flex; align-items: center; gap: 8px;
-      padding: 10px 20px;
-      border-radius: 6px;
+      padding: 11px 22px;
+      border-radius: 999px;
       font-size: 14px;
-      font-weight: 500;
+      font-weight: 600;
       text-decoration: none;
       transition: all 0.2s;
       cursor: pointer;
     }
     .btn-primary {
-      background: var(--accent);
-      color: #000;
+      background: linear-gradient(100deg, var(--indigo), var(--pink));
+      color: #fff;
+      box-shadow: 0 8px 24px -8px rgba(99, 91, 255, 0.6);
     }
-    .btn-primary:hover { background: #81d4fa; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 28px -8px rgba(255, 79, 154, 0.6); }
     .btn-ghost {
       border: 1px solid var(--border);
-      color: var(--muted);
-      background: transparent;
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(6px);
     }
-    .btn-ghost:hover { border-color: var(--muted); color: var(--text); }
+    .btn-ghost:hover { border-color: var(--indigo); color: var(--indigo); }
 
     /* SECTIONS */
     section {
@@ -132,11 +164,11 @@
     }
     .section-label {
       font-size: 11px;
-      font-weight: 600;
+      font-weight: 700;
       letter-spacing: 2px;
       text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 40px;
+      color: var(--c, var(--indigo));
+      margin-bottom: 16px;
     }
     h2 {
       font-family: var(--font-display);
@@ -147,22 +179,24 @@
       margin-bottom: 48px;
     }
 
-    /* RESEARCH */
+    /* RESEARCH: one colour per card, set with --c */
     .research-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      overflow: hidden;
+      gap: 18px;
     }
     .research-card {
       background: var(--surface);
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--c);
+      border-radius: 14px;
       padding: 28px;
-      transition: background 0.2s;
+      transition: transform 0.2s, box-shadow 0.2s;
     }
-    .research-card:hover { background: #111820; }
+    .research-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 40px -20px var(--c);
+    }
     .research-card h3 {
       font-family: var(--font-display);
       font-size: 16px;
@@ -177,12 +211,12 @@
       line-height: 1.6;
     }
     .research-icon {
-      width: 32px; height: 32px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      border-radius: 8px;
+      width: 40px; height: 40px;
+      background: color-mix(in srgb, var(--c) 16%, white);
+      border-radius: 10px;
       margin-bottom: 16px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 15px;
+      font-size: 18px;
     }
 
     /* PAPERS */
@@ -192,21 +226,30 @@
       grid-template-columns: 1fr auto;
       gap: 16px;
       align-items: start;
-      padding: 24px 0;
+      padding: 22px 16px;
+      margin: 0 -16px;
       border-bottom: 1px solid var(--border);
+      border-radius: 10px;
       text-decoration: none;
       transition: all 0.2s;
     }
-    .paper-item:first-child { border-top: 1px solid var(--border); }
-    .paper-item:hover .paper-title { color: var(--accent); }
+    .paper-item:hover { background: rgba(99, 91, 255, 0.06); }
+    .paper-item:hover .paper-title { color: var(--indigo); }
     .paper-venue {
+      display: inline-block;
       font-size: 11px;
-      font-weight: 600;
+      font-weight: 700;
       letter-spacing: 1px;
       text-transform: uppercase;
-      color: var(--accent2);
-      margin-bottom: 6px;
+      color: var(--v, var(--indigo));
+      background: color-mix(in srgb, var(--v, var(--indigo)) 12%, white);
+      padding: 3px 10px;
+      border-radius: 999px;
+      margin-bottom: 8px;
     }
+    .venue-arxiv   { --v: var(--indigo); }
+    .venue-journal { --v: var(--green); }
+    .venue-other   { --v: var(--amber); }
     .paper-title {
       font-family: var(--font-display);
       font-size: 15px;
@@ -217,30 +260,37 @@
     }
     .paper-arrow {
       font-size: 18px;
-      color: var(--border);
-      transition: color 0.2s;
+      color: #c9c4e0;
+      transition: color 0.2s, transform 0.2s;
       margin-top: 20px;
     }
-    .paper-item:hover .paper-arrow { color: var(--accent); }
+    .paper-item:hover .paper-arrow { color: var(--pink); transform: translate(2px, -2px); }
 
     /* CODE */
     .code-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 16px;
+      gap: 18px;
     }
     .code-card {
+      position: relative;
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 22px;
+      border-radius: 14px;
+      padding: 24px 22px 22px;
       text-decoration: none;
       display: flex; flex-direction: column; gap: 10px;
-      transition: border-color 0.2s, background 0.2s;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    }
+    .code-card::before {
+      content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, var(--c1, var(--indigo)), var(--c2, var(--cyan)));
     }
     .code-card:hover {
-      border-color: var(--accent);
-      background: #0e1c2a;
+      transform: translateY(-4px);
+      border-color: transparent;
+      box-shadow: 0 18px 40px -20px var(--c1, var(--indigo));
     }
     .code-card-name {
       font-family: var(--font-display);
@@ -256,11 +306,15 @@
     }
     .code-card-lang {
       font-size: 11px;
-      color: var(--accent);
-      font-weight: 500;
+      color: var(--c1, var(--indigo));
+      font-weight: 600;
     }
 
     /* CONTACT */
+    .contact-band {
+      background: linear-gradient(120deg, #f1efff 0%, #ffeef6 50%, #e9f9ff 100%);
+      border-top: 1px solid var(--border);
+    }
     .contact-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -279,26 +333,32 @@
       padding: 14px 18px;
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: 12px;
       text-decoration: none;
-      color: var(--muted);
+      color: var(--text);
       font-size: 14px;
+      font-weight: 500;
       transition: all 0.2s;
     }
-    .contact-link:hover { border-color: var(--accent); color: var(--text); }
+    .contact-link:hover { border-color: var(--indigo); color: var(--indigo); transform: translateX(4px); }
     .contact-link span:first-child { font-size: 16px; }
 
     /* DIVIDER */
     .divider {
       height: 1px;
-      background: var(--border);
+      background: linear-gradient(90deg, transparent, var(--border) 20%, var(--border) 80%, transparent);
       margin: 0 48px;
     }
 
     /* FOOTER */
+    .footer-band { background: #15122b; }
+    .footer-band::before {
+      content: ""; display: block; height: 4px;
+      background: linear-gradient(90deg, var(--indigo), var(--pink), var(--amber), var(--cyan));
+    }
     footer {
-      padding: 40px 48px;
-      color: var(--muted);
+      padding: 32px 48px;
+      color: #b9b5d6;
       font-size: 13px;
       display: flex;
       justify-content: space-between;
@@ -307,14 +367,15 @@
       margin: 0 auto;
     }
 
-    /* SCROLL GLOW */
+    /* CURSOR GLOW */
     .glow {
       position: fixed; top: -200px; left: -200px;
       width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(79, 195, 247, 0.04) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(255, 79, 154, 0.10) 0%, transparent 70%);
       pointer-events: none;
       transition: transform 0.8s ease;
       border-radius: 50%;
+      z-index: 0;
     }
 
     @media (max-width: 640px) {
@@ -324,11 +385,11 @@
       section { padding: 64px 20px; }
       .contact-grid { grid-template-columns: 1fr; }
       .divider { margin: 0 20px; }
-      footer { padding: 32px 20px; flex-direction: column; gap: 8px; }
+      footer { padding: 28px 20px; flex-direction: column; gap: 8px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      * { transition: none !important; }
+      * { transition: none !important; animation: none !important; }
     }
   </style>
 </head>
@@ -346,6 +407,7 @@
   </ul>
 </nav>
 
+<div class="hero-wrap">
 <div class="hero">
   <div class="hero-tag">PhD Researcher · Universität Hamburg</div>
   <h1>Fast simulation<br>for <em>particle physics</em><br>with deep learning.</h1>
@@ -358,29 +420,30 @@
     <a href="https://inspirehep.net/literature?q=a%20Mozzanica%2C%20Martina" class="btn btn-ghost" target="_blank">INSPIRE</a>
   </div>
 </div>
+</div>
 
 <div class="divider"></div>
 
 <section id="research">
-  <div class="section-label">What I work on</div>
+  <div class="section-label" style="--c: var(--indigo)">What I work on</div>
   <h2>Research focus</h2>
   <div class="research-grid">
-    <div class="research-card">
+    <div class="research-card" style="--c: var(--indigo)">
       <div class="research-icon">⚡</div>
       <h3>Fast Calorimeter Simulation</h3>
       <p>Replacing Geant4 with deep generative models for hadronic shower simulation in ECal and HCal detectors, as point clouds with energy and time.</p>
     </div>
-    <div class="research-card">
+    <div class="research-card" style="--c: var(--cyan)">
       <div class="research-icon">🌊</div>
       <h3>Diffusion & Flow Matching</h3>
       <p>Developing and benchmarking diffusion models and flow matching architectures for high-fidelity, geometry-independent shower generation.</p>
     </div>
-    <div class="research-card">
+    <div class="research-card" style="--c: var(--pink)">
       <div class="research-icon">🔁</div>
       <h3>One-Step Generators</h3>
       <p>Pushing the frontier of inference speed with latent mean-flow generators for pion showers — physics quality at near-zero latency.</p>
     </div>
-    <div class="research-card">
+    <div class="research-card" style="--c: var(--amber)">
       <div class="research-icon">📐</div>
       <h3>Geometry Independence</h3>
       <p>Training models that generalise across calorimeter geometries and particle types, reducing the cost of re-simulation for new detector designs.</p>
@@ -391,13 +454,13 @@
 <div class="divider"></div>
 
 <section id="papers">
-  <div class="section-label">Publications</div>
+  <div class="section-label" style="--c: var(--pink)">Publications</div>
   <h2>Selected papers</h2>
   <div class="papers-list">
 
     <a class="paper-item" href="https://arxiv.org/abs/2609.30403" target="_blank">
       <div>
-        <div class="paper-venue">arXiv · 2025</div>
+        <div class="paper-venue venue-arxiv">arXiv · 2025</div>
         <div class="paper-title">Point-cloud generative models for fast calorimeter simulation across particles and geometries</div>
       </div>
       <div class="paper-arrow">↗</div>
@@ -405,7 +468,7 @@
 
     <a class="paper-item" href="https://arxiv.org/abs/2609.24306" target="_blank">
       <div>
-        <div class="paper-venue">arXiv · 2025</div>
+        <div class="paper-venue venue-arxiv">arXiv · 2025</div>
         <div class="paper-title">Jevons' Paradox and Fast Generative Simulation for HEP: Why Realistic Benchmarking is Essential</div>
       </div>
       <div class="paper-arrow">↗</div>
@@ -413,7 +476,7 @@
 
     <a class="paper-item" href="https://arxiv.org/abs/2606.11304" target="_blank">
       <div>
-        <div class="paper-venue">arXiv · 2025</div>
+        <div class="paper-venue venue-arxiv">arXiv · 2025</div>
         <div class="paper-title">SPADE: Split-and-Delay Embeddings for Autoregressive High-Granularity Calorimeter Simulation</div>
       </div>
       <div class="paper-arrow">↗</div>
@@ -421,7 +484,7 @@
 
     <a class="paper-item" href="https://doi.org/10.1088/1748-0221/21/03/P03018" target="_blank">
       <div>
-        <div class="paper-venue">JINST 21 · 2026</div>
+        <div class="paper-venue venue-journal">JINST 21 · 2026</div>
         <div class="paper-title">CaloClouds3: Ultra-Fast Geometry-Independent Highly-Granular Calorimeter Simulation</div>
       </div>
       <div class="paper-arrow">↗</div>
@@ -429,7 +492,7 @@
 
     <a class="paper-item" href="https://arxiv.org/abs/2506.21720" target="_blank">
       <div>
-        <div class="paper-venue">JINST 21 · 2026</div>
+        <div class="paper-venue venue-journal">JINST 21 · 2026</div>
         <div class="paper-title">CaloHadronic: a diffusion model for the generation of hadronic showers</div>
       </div>
       <div class="paper-arrow">↗</div>
@@ -437,7 +500,7 @@
 
     <a class="paper-item" href="https://arxiv.org/abs/2501.05534" target="_blank">
       <div>
-        <div class="paper-venue">JINST 20 · 2025</div>
+        <div class="paper-venue venue-journal">JINST 20 · 2025</div>
         <div class="paper-title">OmniJet-αC: Learning point cloud calorimeter simulations using generative transformers</div>
       </div>
       <div class="paper-arrow">↗</div>
@@ -445,7 +508,7 @@
 
     <a class="paper-item" href="https://arxiv.org/abs/2304.08610" target="_blank">
       <div>
-        <div class="paper-venue">Comput. Softw. Big Sci. · 2023</div>
+        <div class="paper-venue venue-other">Comput. Softw. Big Sci. · 2023</div>
         <div class="paper-title">GNN for Deep Full Event Interpretation and hierarchical reconstruction of heavy-hadron decays</div>
       </div>
       <div class="paper-arrow">↗</div>
@@ -457,41 +520,46 @@
 <div class="divider"></div>
 
 <section id="code">
-  <div class="section-label">Open source</div>
+  <div class="section-label" style="--c: var(--cyan)">Open source</div>
   <h2>Code</h2>
   <div class="code-grid">
 
-    <a class="code-card" href="https://github.com/FLC-QU-hep/CaloHadronic" target="_blank">
+    <a class="code-card" style="--c1: var(--indigo); --c2: var(--pink)" href="https://github.com/FLC-QU-hep/CaloHadronic" target="_blank">
       <div class="code-card-name">CaloHadronic</div>
       <div class="code-card-desc">Diffusion model for hadronic shower generation in ECal and HCal as point clouds.</div>
       <div class="code-card-lang">Python · FLC-QU-hep</div>
     </a>
 
-    <a class="code-card" href="https://github.com/uhh-pd-ml/SPADE" target="_blank">
+    <a class="code-card" style="--c1: var(--cyan); --c2: var(--green)" href="https://github.com/uhh-pd-ml/SPADE" target="_blank">
       <div class="code-card-name">SPADE</div>
       <div class="code-card-desc">Split-and-delay embeddings for autoregressive high-granularity calorimeter simulation.</div>
       <div class="code-card-lang">Python · uhh-pd-ml</div>
     </a>
 
-    <a class="code-card" href="https://github.com/fast-sim/step2point" target="_blank">
+    <a class="code-card" style="--c1: var(--amber); --c2: var(--pink)" href="https://github.com/fast-sim/step2point" target="_blank">
       <div class="code-card-name">step2point</div>
       <div class="code-card-desc">Compressing calorimeter shower data (x, y, z, E) into point clouds preserving key physics observables.</div>
       <div class="code-card-lang">Python · fast-sim</div>
     </a>
 
-    <a class="code-card" href="https://github.com/FLC-QU-hep/CaloClouds-3" target="_blank">
+    <a class="code-card" style="--c1: var(--green); --c2: var(--cyan)" href="https://github.com/FLC-QU-hep/CaloClouds-3" target="_blank">
       <div class="code-card-name">CaloClouds-3</div>
       <div class="code-card-desc">Ultra-fast geometry-independent highly-granular calorimeter simulation.</div>
       <div class="code-card-lang">Python · FLC-QU-hep</div>
     </a>
 
+    <a class="code-card" style="--c1: var(--pink); --c2: var(--amber)" href="https://github.com/Mmozzanica5/Mmozzanica5.github.io#university-coursework" target="_blank">
+      <div class="code-card-name">University coursework</div>
+      <div class="code-card-desc">Bachelor and Master lab reports, statistics and Monte Carlo projects, and both theses.</div>
+      <div class="code-card-lang">Bachelor · Master</div>
+    </a>
+
   </div>
 </section>
 
-<div class="divider"></div>
-
+<div class="contact-band">
 <section id="contact">
-  <div class="section-label">Get in touch</div>
+  <div class="section-label" style="--c: var(--green)">Get in touch</div>
   <h2>Contact</h2>
   <div class="contact-grid">
     <div class="contact-text">
@@ -517,11 +585,14 @@
     </div>
   </div>
 </section>
+</div>
 
+<div class="footer-band">
 <footer>
   <span>Martina Mozzanica · Universität Hamburg</span>
   <span>2026</span>
 </footer>
+</div>
 
 <script>
   // Nav scroll effect
