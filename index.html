@@ -413,6 +413,10 @@
       z-index: 0;
     }
 
+    .code-row { grid-template-columns: repeat(6, 1fr); gap: 12px; }
+    .code-row .code-card { padding: 18px 14px 16px; }
+    @media (max-width: 900px) { .code-row { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 640px) { .code-row { grid-template-columns: 1fr; } }
     .tl-item + .tl-item { margin-top: 10px; }
     @media (max-width: 900px) { .research-grid { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 640px) {
@@ -605,7 +609,7 @@
   <div class="section-label" style="--c: var(--sky)">Open source</div>
   <h2>Code</h2>
   <h3 class="code-group">Repositories I contribute to</h3>
-  <div class="code-grid">
+  <div class="code-grid code-row">
     <a class="code-card" style="--c1: var(--navy); --c2: var(--orange)" href="https://github.com/FLC-QU-hep/CaloHadronic" target="_blank">
       <div class="code-card-name">CaloHadronic</div>
       <div class="code-card-desc">Diffusion model for hadronic showers across the ECal and HCal, as point clouds. Main developer.</div>
