@@ -90,9 +90,10 @@
     }
     .hero {
       min-height: 100vh;
-      display: flex; flex-direction: column; justify-content: center;
+      display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(260px, 1fr);
+      gap: 48px; align-items: center;
       padding: 120px 48px 80px;
-      max-width: 960px;
+      max-width: 1100px; margin: 0 auto;
       position: relative; z-index: 1;
     }
     .hero-tag {
@@ -417,6 +418,18 @@
     .code-row .code-card { padding: 18px 14px 16px; }
     @media (max-width: 900px) { .code-row { grid-template-columns: repeat(3, 1fr); } }
     @media (max-width: 640px) { .code-row { grid-template-columns: 1fr; } }
+    .hero-main { display: flex; flex-direction: column; }
+    .hero-contact {
+      background: rgba(255, 255, 255, 0.75);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px;
+      backdrop-filter: blur(6px);
+    }
+    .hero-contact-text { font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 14px; }
+    .hero-contact .contact-links { gap: 8px; }
+    .hero-contact .contact-link { padding: 10px 14px; }
+    @media (max-width: 900px) { .hero { grid-template-columns: 1fr; min-height: 0; } }
     .tl-item + .tl-item { margin-top: 10px; }
     @media (max-width: 900px) { .research-grid { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 640px) {
@@ -453,17 +466,43 @@
 
 <div class="hero-wrap">
 <div class="hero">
-  <div class="hero-tag">PhD Researcher · Universität Hamburg</div>
-  <h1>Fast simulation<br>for <em>particle physics</em><br>with deep learning.</h1>
-  <p class="hero-bio">
-    I build generative models — diffusion, flow matching, one-step generators — that simulate hadronic showers in highly granular calorimeters at two orders of magnitude faster than Geant4, without sacrificing physics accuracy.
-  </p>
-  <div class="hero-links">
-    <a href="#papers" class="btn btn-primary">View papers</a>
-    <a href="CV_A4.pdf" class="btn btn-ghost" target="_blank">Download CV</a>
-    <a href="https://github.com/Mmozzanica5" class="btn btn-ghost" target="_blank">GitHub</a>
-    <a href="https://inspirehep.net/literature?q=a%20Mozzanica%2C%20Martina" class="btn btn-ghost" target="_blank">INSPIRE</a>
+  <div class="hero-main">
+    <div class="hero-tag">PhD Researcher · Universität Hamburg</div>
+    <h1>Fast simulation<br>for <em>particle physics</em><br>with deep learning.</h1>
+    <p class="hero-bio">
+      I build generative models — diffusion, flow matching, one-step generators — that simulate hadronic showers in highly granular calorimeters at two orders of magnitude faster than Geant4, without sacrificing physics accuracy.
+    </p>
+    <div class="hero-links">
+      <a href="#papers" class="btn btn-primary">View papers</a>
+      <a href="CV_A4.pdf" class="btn btn-ghost" target="_blank">Download CV</a>
+      <a href="https://github.com/Mmozzanica5" class="btn btn-ghost" target="_blank">GitHub</a>
+      <a href="https://inspirehep.net/literature?q=a%20Mozzanica%2C%20Martina" class="btn btn-ghost" target="_blank">INSPIRE</a>
+    </div>
   </div>
+  <aside class="hero-contact" id="contact">
+    <div class="section-label" style="--c: var(--teal)">Get in touch</div>
+    <p class="hero-contact-text">Open to collaborations, internships, and conversations about ML for science.</p>
+    <div class="contact-links">
+      <a class="contact-link" href="CV_A4.pdf" target="_blank">
+        <span>📄</span><span>CV (PDF)</span>
+      </a>
+      <a class="contact-link" href="https://www.linkedin.com/in/martina-mozzanica-20017b202/" target="_blank">
+        <span>💼</span><span>LinkedIn</span>
+      </a>
+      <a class="contact-link" href="https://github.com/Mmozzanica5" target="_blank">
+        <span>🐙</span><span>GitHub</span>
+      </a>
+      <a class="contact-link" href="https://huggingface.co/mmozzani" target="_blank">
+        <span>🤗</span><span>Hugging Face</span>
+      </a>
+      <a class="contact-link" href="https://orcid.org/0009-0002-1111-6247" target="_blank">
+        <span>🔬</span><span>ORCID</span>
+      </a>
+      <a class="contact-link" href="https://inspirehep.net/literature?q=a%20Mozzanica%2C%20Martina" target="_blank">
+        <span>📄</span><span>INSPIRE HEP</span>
+      </a>
+    </div>
+  </aside>
 </div>
 </div>
 
@@ -665,39 +704,6 @@
     </a>
   </div>
 </section>
-
-<div class="contact-band">
-<section id="contact">
-  <div class="section-label" style="--c: var(--teal)">Get in touch</div>
-  <h2>Contact</h2>
-  <div class="contact-grid">
-    <div class="contact-text">
-      I'm a PhD researcher at <strong>Universität Hamburg</strong> working at the intersection of <strong>deep generative modelling</strong> and <strong>particle physics simulation</strong>.<br><br>
-      Open to collaborations, internships, and conversations about ML for science.
-    </div>
-    <div class="contact-links">
-      <a class="contact-link" href="CV_A4.pdf" target="_blank">
-        <span>📄</span><span>CV (PDF)</span>
-      </a>
-      <a class="contact-link" href="https://www.linkedin.com/in/martina-mozzanica-20017b202/" target="_blank">
-        <span>💼</span><span>LinkedIn</span>
-      </a>
-      <a class="contact-link" href="https://github.com/Mmozzanica5" target="_blank">
-        <span>🐙</span><span>GitHub</span>
-      </a>
-      <a class="contact-link" href="https://huggingface.co/mmozzani" target="_blank">
-        <span>🤗</span><span>Hugging Face</span>
-      </a>
-      <a class="contact-link" href="https://orcid.org/0009-0002-1111-6247" target="_blank">
-        <span>🔬</span><span>ORCID</span>
-      </a>
-      <a class="contact-link" href="https://inspirehep.net/literature?q=a%20Mozzanica%2C%20Martina" target="_blank">
-        <span>📄</span><span>INSPIRE HEP</span>
-      </a>
-    </div>
-  </div>
-</section>
-</div>
 
 <div class="footer-band">
 <footer>
